@@ -83,7 +83,7 @@
 	
 	\subsection{Targets}
 	\subsection{Sample}
-	\subsection{What are we prediction?}
+	\subsection{What are we predicting?}
 	\newpage
 	
 	\section{Algorithms}
@@ -93,11 +93,15 @@
 	\subsubsection{Reason}
 	\subsubsection{Performance}
 	\newpage
-	\subsection{Na\"{\i}ve Bayes}
+	\subsection{Gaussian Na\"{\i}ve Bayes}
 	\subsubsection{Description}
+	Gaussian Na\"{\i}ve Bayes is one of Na\"{\i}ve Bayes modelling algorithms used for classification with an assumption of normal distribution of the data features.
 	\subsubsection{How data was handled}
-	\subsubsection{Reason}
+	Considering that we had some categorical data and given the fact that Gaussian Na\"{\i}ve Bayes works with continuous input data, a label encoder method had to be imported from the sklearn python library in order to convert the categorical data into continuous data. In other words strings matching the category where encoded into numbers.This was needed to allow the GaussianNB() method from the sklearn.naive bayes library to fit the training data into the model. Also the data had to include non-nulls thus a dropna() method was used to remove any missing values in the dataset. Column headers also had to be added into the dataset which mirrored the attributes given to us from the dataset repository (https://archive.ics.uci.edu/ml/datasets/Adult). Afterwards training and testing data were split with a test size ratio of 0.2 produced at random, this allowed us to fit the non-biased training data into the Gaussian Naive Bayes model.
+	\subsubsection{Reasons} 
+	Since we are given a classification problem, Gaussian Na\"{\i}ve Bayes is a simple and efficient model to implement given that it is one-dimensional. Also from a coding perspective, the algorithm is quick to implement as there is support from the sklearn python library. The Na\"{\i}ve Bayes algorithm works well with large datasets giving an almost accurate and fast way of prediction
 	\subsubsection{Performance}
+	As stated above the algorithm models large data quickly and efficiently. With our dataset the model produced an accuracy level of 0.804514742014742.  
 	\newpage
 	\subsection{Linear Regression}
 	\subsubsection{Description}
