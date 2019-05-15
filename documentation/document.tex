@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 
 \usepackage{xcolor}
+\usepackage{sectsty}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
@@ -9,8 +10,14 @@
 \hypersetup{
 	linktocpage,
 	colorlinks=true,
-	linkcolor=gray
+	linkcolor=gray,
+	filecolor=olive,
+	urlcolor=darkgray,
+	citecolor=darkgray
 }
+
+\sectionfont{\color{brown}}
+
 \setlength{\arrayrulewidth}{0.5mm}
 \setlength{\tabcolsep}{15pt}
 \renewcommand{\arraystretch}{1.2}
@@ -55,14 +62,14 @@
 	The aim of this dataset is to predict whether a person earns \$50,000 per annum. This
 	dataset has 14 variables, is multivariate and the area of focus is social.
 	\begin{center}
-		\begin{tabular}{|p{3cm}|p{12cm}|}
+		\begin{tabular}{|p{2cm}|p{12cm}|}
 			\hline
 			\multicolumn{2}{|c|}{\bfseries\Large Adult Data Set} \\
 			\hline
-			Attribute&Description\\
+			Attribute&Values\\
 			\hline
-			age&continuous\\
-			workclass& Private, Self-emp-not-inc, Self-emp-inc, Federal-gov, Local-gov, State-gov, Without-pay, Never-worked\\
+			age&Age of person\\
+			workclass&Private, Self-emp-not-inc, Self-emp-inc, Federal-gov, Local-gov, State-gov, Without-pay, Never-worked\\
 			fnlwg&continuous\\
 			education&Bachelors, Some-college, 11th, HS-grad, Prof-school, Assoc-acdm, Assoc-voc, 9th, 7th-8th, 12th, Masters, 1st-4th, 10th, Doctorate, 5th-6th, Preschool\\
 			education-num&continuous\\
@@ -80,6 +87,26 @@
 			\hline
 		\end{tabular}
 	\end{center}
+
+	\setlength{\arrayrulewidth}{0.0mm}
+	\setlength{\tabcolsep}{15pt}
+	\renewcommand{\arraystretch}{1.2}
+	
+	\subsection{Terminology}
+	\begin{tabular}{|p{3cm}|p{1cm}|p{10cm}|}
+		{\bfseries Age}&:&Age of person\\
+		{\bfseries Work Class}&:&Class of work\\
+		{\bfseries Final Weight}&:&Final weight of how much of the population it represents\\
+		{\bfseries Education}&:&Education level\\
+		{\bfseries Education Number}&:&Numeric education level\\
+		{\bfseries Occupation}&:&Occupation of the person\\
+		{\bfseries Relationship}&:&Type of relationship\\
+		{\bfseries Sex}&:&Gender of the person\\
+		{\bfseries Capital Gain}&:&Rise in value of an investment or real estate that gives it a higher worth than the purchase price\\
+		{\bfseries Capital Loss}&:&Loss incured when an investment or real estate decreases in value\\
+		{\bfseries Hours}&:&Average number of working hours per week\\
+		{\bfseries Native Country}&:&Country of origin\\
+	\end{tabular}
 	
 	\subsection{Targets}
 	\subsection{Sample}
@@ -89,10 +116,24 @@
 	\section{Algorithms}
 	\subsection{Decision Tree}
 	\subsubsection{Description}
+	
+	Decision Trees are used to classify data, the classification can either be categorical or continuous. They are a type of Supervised Machine Learning. The tree can be described by decision nodes and leaves. The leaves describe the final outcomes, and the decision nodes are where the data is split\cite{decision-tree-explanation}.
+	
 	\subsubsection{How data was handled}
+	
+	The following was done to prepare the data:
+	\begin{itemize}
+		\item Headers were added and saved to a new file \href{run:../data/adult.csv}{adult.csv}
+		\item Rows that had missing variables were removed from the data set.
+		\item Redundant attributes/columns were removed, i.e: education-num
+	\end{itemize}
+	
 	\subsubsection{Reason}
 	\subsubsection{Performance}
 	\newpage
+	
+	
+	
 	\subsection{Na\"{\i}ve Bayes}
 	\subsubsection{Description}
 	\subsubsection{How data was handled}
@@ -110,5 +151,16 @@
 	\subsubsection{Best Algorithm}
 	\subsubsection{Worst Algorithm}
 	\subsection{Recommendations}
+	\newpage
+	
+	\begin{thebibliography}{9}
+		\bibitem{weight-and-income}
+		Does thinking you look fat affect how much money you earn?
+		\\\texttt{\url{https://www.timeslive.co.za/sunday-times/lifestyle/health-and-sex/2018-07-23-does-thinking-you-look-fat-affect-how-much-money-you-earn/}}
+		
+		\bibitem{decision-tree-explanation}
+		Decision Trees for Classification: A Machine Learning Algorithm
+		\\\texttt{\url{https://www.xoriant.com/blog/product-engineering/decision-trees-machine-learning-algorithm.html}}
+	\end{thebibliography}
 	
 \end{document}
