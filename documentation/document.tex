@@ -51,12 +51,15 @@
 	\thispagestyle{empty}
 	\newpage
 	
+	
+	% SECTION - INTRO
 	\section{Introduction}
 	\setcounter{page}{1}
 	\subsection{What is Supervised Learning?}
-	
 	\newpage
 	
+	
+	% SECTION - DATASET
 	\section{Dataset}
 	\subsection{Description}
 	The aim of this dataset is to predict whether a person earns \$50,000 per annum. This
@@ -113,6 +116,8 @@
 	\subsection{What are we predicting?}
 	\newpage
 	
+	
+	% SECTION - ALGORITHMS
 	\section{Algorithms}
 	
 	% decision tree
@@ -128,6 +133,37 @@
 		\item Headers were added and saved to a new file \href{run:../data/adult.csv}{adult.csv}
 		\item Rows that had missing variables were removed from the data set.
 		\item Redundant attributes/columns were removed, i.e: education-num
+		\item Irrelevant columns were removed
+		\begin{itemize}
+			\item {\bfseries Final Weight} ({\bfseries fnlwgt}) weight does not necessarily correlate with income\cite{weight-and-income}.
+			\item {\bfseries Capital Gains/Losses} ({\bfseries capital-gain/capital-loss}) including assets and investments wastes computation resources\cite{income-vs-capital}.
+			\item {\bfseries Native Country} ({\bfseries native-country}) obvious, and would waste computation resources.
+		\end{itemize}
+		\item Continuous variables were made categorial
+		\begin{itemize}
+			\item {\bfseries Age} ({\bfseries age}) 3 groups namely, see reference\cite{age-groups}.
+			\begin{itemize}
+				\item {\bfseries Baby Boomers} ({\bfseries baby-boomers}) 50 years old and upwards
+				\item {\bfseries Generation X} ({\bfseries generation-x}) between 35 and 50 years old
+				\item {\bfseries Millennials} ({\bfseries millennials}) between 17 and 34 years old
+			\end{itemize}
+			\item {\bfseries Work Hours} ({\bfseries hours-per-week}) 3 groups, see reference\cite{work-hours}
+			\begin{itemize}
+				\item {\bfseries Part-Time} ({\bfseries part-time}) less than 37 hours
+				\item {\bfseries Full-Time} ({\bfseries full-time}) 37-40 hours
+				\item {\bfseries Overtime} ({\bfseries overtime}) more than 40 hours
+			\end{itemize}
+		\end{itemize}
+		\item Reduced number of education levels to 7 groups using the United State's education level system, see references
+		\begin{itemize}
+			\item {\bfseries Preschool} ({\bfseries preschool}) values Preschool\cite{education-level}
+			\item {\bfseries Elementary School} ({\bfseries elementary}) values 1st-4th\cite{education-level}
+			\item {\bfseries Middle School} ({\bfseries middle}) values 5th-6th, 7th-8th\cite{education-level}
+			\item {\bfseries High School} ({\bfseries middle}) values 9th, 10th, 11th, 12th, HS-grad\cite{education-level}
+			\item {\bfseries Undergraduate} ({\bfseries undergrad}) values Bachelors\cite{undergrad}, Assoc-acdm\cite{associate-degree}
+			\item {\bfseries College} ({\bfseries college}) values Some-college\cite{difference-between-education-levels}, Assoc-voc\cite{vocational-school}
+			\item {\bfseries Postgraduate} ({\bfseries postgrad}) values Prof-school, Masters, Doctorate\cite{postgrad}
+		\end{itemize}
 	\end{itemize}
 
 	\subsubsection{Reason}
@@ -155,7 +191,7 @@
 	\newpage
 	
 	
-	
+	% SECTION - RESULTS
 	\section{Results}
 	\subsection{Findings}
 	\subsubsection{Best Algorithm}
@@ -171,6 +207,42 @@
 		\bibitem{decision-tree-explanation}
 		Decision Trees for Classification: A Machine Learning Algorithm
 		\\\texttt{\url{https://www.xoriant.com/blog/product-engineering/decision-trees-machine-learning-algorithm.html}}
+		
+		\bibitem{income-vs-capital}
+		Income tax vs. Capital Gains Tax: What's the Difference?
+		\\\texttt{\url{https://www.investopedia.com/ask/answers/052015/what-difference-between-income-tax-and-capital-gains-tax.asp}}
+		
+		\bibitem{age-groups}
+		What Marketing Content Do Different Age Groups like to Consume?
+		\\\texttt{\url{https://www.digitaldoughnut.com/articles/2016/september/what-marketing-content-different-age-groups-like}}
+		
+		\bibitem{work-hours}
+		Types of Work Schedules
+		\\\texttt{\url{https://www.thebalancecareers.com/types-of-work-schedules-2064278}}
+		
+		\bibitem{education-level}
+		Educational stage
+		\\\texttt{\url{https://en.wikipedia.org/wiki/Educational_stage\#United_States}}
+		
+		\bibitem{undergrad}
+		Undergraduate education
+		\\\texttt{\url{https://en.wikipedia.org/wiki/Undergraduate_education\#United_States_system}}
+		
+		\bibitem{postgrad}
+		Postgraduate education
+		\\\texttt{\url{https://en.wikipedia.org/wiki/Postgraduate_education}}
+		
+		\bibitem{difference-between-education-levels}
+		What Is the Difference Between a Certificate, Diploma and Degree?
+		\\\texttt{\url{https://study.com/articles/What_is_the_Difference_Between_a_Certificate_Diploma_and_Degree.html}}
+		
+		\bibitem{vocational-school}
+		Vocational School
+		\\\texttt{\url{https://en.wikipedia.org/wiki/Vocational_school}}
+		
+		\bibitem{associate-degree}
+		Associate degree
+		\\\texttt{\url{https://en.wikipedia.org/wiki/Associate_degree}}
 	\end{thebibliography}
 	
 \end{document}
